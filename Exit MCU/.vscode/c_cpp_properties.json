@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/COTS/MCAL/GPIO",
+                "${workspaceFolder}/COTS/Library",
+                "${workspaceFolder}/COTS/HAL/Buzzer",
+                "${workspaceFolder}/COTS/HAL/Communication",
+                "${workspaceFolder}/COTS/HAL/Gate",
+                "${workspaceFolder}/COTS/HAL/Motion_Sensor",
+                "${workspaceFolder}/COTS/HAL/LED",
+                "${workspaceFolder}/COTS/HAL/LCD",
+                "${workspaceFolder}/COTS/MCAL/SPI",
+                "${workspaceFolder}/COTS/MCAL/UART",
+                "${workspaceFolder}/COTS/MCAL/Timer",
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
