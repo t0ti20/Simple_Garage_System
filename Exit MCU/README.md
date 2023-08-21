@@ -1,69 +1,31 @@
-# 🚗 Simple Garage System
+# 🚧 Exit Gate ECU Functionality - Garage Management System
 
-Welcome to the Simple Garage System repository. This project showcases an innovative solution designed to revolutionize vehicle access management within a garage setting. Built with the Agile Scrum methodology using Jira software, the system ensures smooth operations, user convenience, and efficient administration.
+![2](https://github.com/t0ti20/Simple_Garage_System/assets/61616031/09611bdb-92c2-44ed-b245-3b756ffefc93)
 
-![Screenshot 2023-08-21 085608](https://github.com/t0ti20/Simple_Garage_System/assets/61616031/65c69817-eb35-4e97-ada3-ef4bf8f21eb3)
+Developed utilizing the robust ATmega32 microcontroller, the Exit Gate ECU is a vital component of our Garage Management System. It supervises and authenticates the exiting vehicles through a seamless interaction of RFID, USART, and SPI communication mechanisms.
 
+## 📖 Detailed Overview
 
-## 🌟 Overview
+### Step 1: Vehicle Prepares to Exit
+As a vehicle is poised to exit the garage, the user must present their ID to the RFID scanner at the exit gate. This identification process is expertly handled by the USART module integrated within the ATmega32.
 
-The Simple Garage System operates with a clear workflow:
+### Step 2: Exit ECU Communicates with Main ECU
+Upon ID capture, the Exit ECU initiates a query process with the Main ECU. This communication is executed over the SPI protocol, embedded in the ATmega32, ensuring rapid and error-free data exchanges.
 
-Users who wish to enter the garage present their ID through an RFID system. This ID is captured by the **Entrance Gate ECU** using the USART module. The Entrance ECU then communicates with the **System Control ECU** via the SPI protocol to verify the validity of the presented ID.
+### Step 3: ID Validation and Exit Execution
 
-Upon successful ID validation:
-- The garage gate opens.
-- A green LED indicator illuminates, signaling authorized access.
-- The system waits for a signal from the motion sensor, confirming the vehicle's passage.
-- Once the vehicle has passed, the gate automatically closes.
-- During this process, the admin dashboard receives an update on the recent activity.
+- **Valid ID Scenario**:
+  - Recognizing an authenticated ID, the gate automatically swings open, authorizing the vehicle to exit.
+  - During this time, a notification or alert is dispatched to the admin dashboard, ensuring real-time monitoring and awareness.
 
-Should the ID be deemed invalid:
-- A buzzer sounds an alarm.
-- The system displays an "ID not valid" message.
-- A red LED lights up to indicate unauthorized access.
-- The admin dashboard is immediately updated with this failed access attempt.
+- **Invalid ID Scenario**:
+  - Should the ID prove inauthentic, the gate remains firmly shut.
+  - While the vehicle is not granted permission to exit, an urgent notification is routed to the admin dashboard, highlighting the unauthorized exit attempt.
+  
+Regardless of the ID's validity, the ATmega32 ensures that every exit attempt is duly recorded and the admin dashboard is updated promptly.
 
-For both scenarios, a seven-segment display provides a real-time count of available slots in the garage.
+## 🛠 Technologies & Hardware
 
-Exiting the garage follows a similar pattern. The client presents their ID via RFID to the **Exit Gate ECU**. The ID is then verified with the System Control ECU. If the ID is valid, the exit gate opens, allowing the vehicle to leave. If not, the admin is notified without the gate opening.
-
-Furthermore, administrators have access to a dedicated dashboard. Using a keypad and LCD interface, they can add new IDs, granting authorized access to new users.
-
-## 🛠 Development
-
-The system was developed in adherence to the Agile Scrum methodology and managed using Jira software. Over two releases, the solution has been refined to its current state:
-
-- **First Release (2 Sprints)**
-    1. Design and implement the MCAL (Microcontroller Abstraction Layer) for the three microcontrollers.
-    2. Implementation of the HAL (Hardware Abstraction Layer) and the application layer.
-
-- **Second Release**
-    The refinement of various system functionalities and the finalization of the application layer.
-
-This Agile approach ensured iterative improvement and effective incorporation of feedback, leading to a reliable and efficient garage management system.
-
-## ⚙️ Features
-
-- **RFID Integration:** Fast and efficient ID scanning for vehicle access.
-- **SPI Communication:** Seamless and swift communication between ECUs using the SPI protocol in a single-master multiple-slave configuration.
-- **Admin Dashboard:** Enables administrative oversight and control, from monitoring access attempts to adding new authorized IDs.
-- **Seven Segment Display:** Offers real-time updates on garage occupancy.
-
-## 🎥 User Story Exploration Video
-
-Delve deeper into our garage management system by exploring a user story in action. Click on the thumbnail below to view the video.
-
-https://github.com/t0ti20/Simple_Garage_System/assets/61616031/373c13ae-4bc4-4b18-9ada-e79a058e9a08
-
-This video provides a comprehensive walk-through of a typical user story, showcasing the ease of use and functionalities of our system. From scanning an RFID at the entrance to seamless communication between ECUs, witness firsthand how our system transforms garage operations.
-
-## 🚀 Future Improvements
-
-- Integration of a centralized database for more extensive ID storage.
-- Advanced analytics on the admin dashboard for tracking peak garage usage times.
-- Enhanced security features including encryption for ID data.
-
-## Authors
-- [@Khaled El_Sayed](https://github.com/t0ti20)
-Thank you for exploring the Simple Garage System. Your feedback and contributions are always welcome!
+- **RFID**: Offers efficient, contactless ID scanning for exiting vehicles.
+- **USART Module**: Embedded in the ATmega32, it ensures the seamless capture of ID from the RFID scanner.
+- **SPI Protocol**: Leveraging ATmega32's capabilities, it governs the communication between the Exit ECU and Main ECU.
