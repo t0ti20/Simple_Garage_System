@@ -66,4 +66,5 @@ This video provides a comprehensive walk-through of a typical user story, showca
 
 ## Authors
 - [@Khaled El_Sayed](https://github.com/t0ti20)
+
 Thank you for exploring the Simple Garage System. Your feedback and contributions are always welcome!
