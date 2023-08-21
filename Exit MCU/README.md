@@ -1,6 +1,6 @@
 # 🚧 Exit Gate ECU Functionality - Garage Management System
 
-![2](https://github.com/t0ti20/Simple_Garage_System/assets/61616031/09611bdb-92c2-44ed-b245-3b756ffefc93)
+![3](https://github.com/t0ti20/Simple_Garage_System/assets/61616031/e71c6094-6e22-4316-86a8-40a7fe4514b7)
 
 Developed utilizing the robust ATmega32 microcontroller, the Exit Gate ECU is a vital component of our Garage Management System. It supervises and authenticates the exiting vehicles through a seamless interaction of RFID, USART, and SPI communication mechanisms.
 
