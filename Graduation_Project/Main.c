@@ -3,56 +3,57 @@
 #define Maximum_Slots 4
 #define Index_Not_Found -1
 #define Second_Cost 0.000001
-typedef unsigned char ID_t;
+typedef String ID_t;
 typedef enum Error_t
 {
-     Error_Ok,
-     Error_Garage_IDs_Full,
-     Error_Garage_Slots_Full,
-     Error_ID_Not_Found,
-     Error_Slot_Reserved,
-     Error_Slot_Not_Found,
+    Error_Ok,
+    Error_Garage_IDs_Full,
+    Error_Garage_Slots_Full,
+    Error_ID_Not_Found,
+    Error_Slot_Reserved,
+    Error_Slot_Not_Found,
 }Error_t;
 typedef struct Time_t
 {
-     unsigned char Hours;
-     unsigned char Minutes;
-     unsigned char Seconds;
+    unsigned char Hours;
+    unsigned char Minutes;
+    unsigned char Seconds;
 }Time_t;
 typedef struct Slot_t
 {
-     Time_t Start_Time;
-     ID_t ID_Number;
+    Time_t Start_Time;
+    ID_t ID_Number;
 }Slot_t;
 typedef struct Garage_t
 {
-     ID_t Clent_IDs[Maximum_Clents];
-     Slot_t Garage_Slots[Maximum_Slots];
-     unsigned char Reserved_Slots;
+    ID_t Clent_IDs[Maximum_Clents];
+    Slot_t Garage_Slots[Maximum_Slots];
+    unsigned char Reserved_Slots;
 }Garage_t;
+
 Garage_t DataBase;
 Time_t Current_Time;
 
 Error_t Add_ID(ID_t ID_Number)
 {
-     Error_t State=Error_Garage_IDs_Full;
-     for(unsigned char Counter=0;Counter<Maximum_Clents;Counter++)
-     {
-          if(DataBase.Clent_IDs[Counter]){}
-          else
-          {
-               DataBase.Clent_IDs[Counter]=ID_Number;
-               State=Error_Ok;
-               break;
-          }
-     }
-     return State;
+    Error_t State=Error_Garage_IDs_Full;
+    for(unsigned char Counter=0;Counter<Maximum_Clents;Counter++)
+    {
+        if(DataBase.Clent_IDs[Counter]){}
+        else
+        {
+            DataBase.Clent_IDs[Counter]=ID_Number;
+            State=Error_Ok;
+            break;
+        }
+    }
+    return State;
 }
 void Update_Time(void)
 {
-     Current_Time.Hours=11;
-     Current_Time.Minutes=11;
-     Current_Time.Seconds=11;
+    Current_Time.Hours=11;
+    Current_Time.Minutes=11;
+    Current_Time.Seconds=11;
 }
 static char Get_Slot(ID_t ID_Number)
 {
@@ -149,7 +150,9 @@ Error_t Exit_Enter_Garage(ID_t ID_Number)
     }
     return State;
 }
-void print_slots_data() {
+
+void print_slots_data() 
+{
     printf("Reserved Slots Data:\n");
     for (unsigned char Counter = 0; Counter < Maximum_Slots; Counter++) {
         if (DataBase.Garage_Slots[Counter].ID_Number != 0) {
@@ -161,6 +164,7 @@ void print_slots_data() {
         }
     }
 }
+
 void Garage_Initialization(void)
 {
 
@@ -197,7 +201,6 @@ int main() {
         printf("4. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
-
         switch (choice) {
             case 1: {
                 ID_t id;
