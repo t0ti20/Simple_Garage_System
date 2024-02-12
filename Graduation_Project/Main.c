@@ -3,7 +3,7 @@
 #define Maximum_Slots 4
 #define Index_Not_Found -1
 #define Second_Cost 0.000001
-typedef String ID_t;
+typedef int ID_t;
 typedef enum Error_t
 {
     Error_Ok,
